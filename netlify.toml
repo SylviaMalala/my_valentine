@@ -1,0 +1,10 @@
+[build]
+  # Static HTML site - no build process needed
+  base = "."
+  publish = "."
+  command = "echo 'No build needed for static HTML site'"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 404
