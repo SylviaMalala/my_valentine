@@ -1,0 +1,531 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #00CED1 0%, #40E0D0 25%, #FFFFFF 50%, #3CB371 75%, #2E8B57 100%);
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Floating Hearts Background */
+.hearts-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(45deg);
+    animation: float 15s infinite ease-in-out;
+    opacity: 0;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -20px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: -20px;
+}
+
+.heart:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.heart:nth-child(2) {
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.heart:nth-child(3) {
+    left: 50%;
+    animation-delay: 4s;
+}
+
+.heart:nth-child(4) {
+    left: 70%;
+    animation-delay: 6s;
+}
+
+.heart:nth-child(5) {
+    left: 85%;
+    animation-delay: 8s;
+}
+
+.heart:nth-child(6) {
+    left: 20%;
+    animation-delay: 10s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(45deg) scale(0);
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(45deg) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header Photo Section */
+.header-photo-section {
+    margin-bottom: 50px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.main-photo-container {
+    position: relative;
+    background: linear-gradient(135deg, #E0FFFF 0%, #7FFFD4 50%, #40E0D0 100%);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+    border: 6px solid rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+}
+
+.photo-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.float-heart {
+    position: absolute;
+    font-size: 2.5em;
+    animation: floatHeart 4s infinite ease-in-out;
+    opacity: 0.6;
+}
+
+.float-heart:nth-child(1) {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.float-heart:nth-child(2) {
+    top: 20%;
+    right: 10%;
+    animation-delay: 1s;
+}
+
+.float-heart:nth-child(3) {
+    bottom: 20%;
+    left: 15%;
+    animation-delay: 2s;
+}
+
+.float-heart:nth-child(4) {
+    bottom: 10%;
+    right: 15%;
+    animation-delay: 3s;
+}
+
+@keyframes floatHeart {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-20px) scale(1.1);
+    }
+}
+
+.main-photo-frame {
+    position: relative;
+    background: white;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+    transform: rotate(-1deg);
+    transition: transform 0.4s ease;
+    z-index: 2;
+}
+
+.main-photo-frame:hover {
+    transform: rotate(0deg) scale(1.03);
+}
+
+.main-photo-frame img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 15px;
+    display: block;
+    animation: photoReveal 1.2s ease-out;
+}
+
+@keyframes photoReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+.photo-overlay {
+    margin-top: 20px;
+    text-align: center;
+    padding: 15px;
+    background: linear-gradient(135deg, rgba(64, 224, 208, 0.2), rgba(127, 255, 212, 0.2));
+    border-radius: 15px;
+}
+
+.photo-title {
+    color: #8B008B;
+    font-size: 2.5em;
+    margin: 0 0 10px 0;
+    font-family: 'Brush Script MT', cursive;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.photo-subtitle {
+    color: #9370DB;
+    font-size: 1.5em;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Valentine Card */
+.valentine-card {
+    margin-bottom: 40px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.card-front {
+    background: linear-gradient(135deg, #40E0D0 0%, #AFEEEE 50%, #FFFFFF 100%);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-front::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(10%, 10%); }
+}
+
+.card-header h1 {
+    color: white;
+    font-size: 3em;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    font-family: 'Brush Script MT', cursive;
+}
+
+.heart-icon {
+    font-size: 4em;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    10%, 30% { transform: scale(1.1); }
+    20%, 40% { transform: scale(1); }
+}
+
+.photo-frame {
+    margin: 30px auto;
+    background: white;
+    padding: 15px;
+    border-radius: 20px;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+}
+
+.photo-frame:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.photo-frame img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.photo-caption {
+    margin-top: 10px;
+    color: #9370DB;
+    font-weight: bold;
+    font-size: 1.3em;
+    font-style: italic;
+}
+
+.decorative-hearts {
+    margin-top: 20px;
+    font-size: 2.5em;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.decorative-hearts span {
+    animation: bounce 2s infinite;
+}
+
+.decorative-hearts span:nth-child(2) { animation-delay: 0.2s; }
+.decorative-hearts span:nth-child(3) { animation-delay: 0.4s; }
+.decorative-hearts span:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Love Letter */
+.love-letter {
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.letter-paper {
+    background: linear-gradient(to bottom, #F0FFFF 0%, #E0FFFF 100%);
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: 3px solid #7FFFD4;
+    position: relative;
+}
+
+.letter-paper::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 2px dashed rgba(64, 224, 208, 0.3);
+    border-radius: 15px;
+    pointer-events: none;
+}
+
+.letter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.date {
+    font-style: italic;
+    color: #8B008B;
+    font-size: 1.1em;
+}
+
+.flower-decoration {
+    font-size: 2em;
+    animation: rotate 3s infinite ease-in-out;
+}
+
+@keyframes rotate {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(10deg); }
+}
+
+.letter-content h2 {
+    color: #6A0DAD;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'Brush Script MT', cursive;
+}
+
+.letter-content p {
+    line-height: 1.8;
+    color: #4B0082;
+    font-size: 1.15em;
+    margin-bottom: 20px;
+    text-align: justify;
+    text-indent: 30px;
+}
+
+.letter-closing {
+    margin-top: 40px;
+    text-align: right;
+    font-style: italic;
+}
+
+.letter-closing p {
+    text-indent: 0;
+    text-align: right;
+}
+
+.signature {
+    font-size: 1.5em;
+    color: #8B008B;
+    font-family: 'Brush Script MT', cursive;
+    margin: 10px 0;
+}
+
+.from-location {
+    font-size: 1.2em;
+    color: #9370DB;
+    font-weight: bold;
+}
+
+.hearts-divider {
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 30px;
+    color: #BA55D3;
+}
+
+/* Special Message */
+.special-message {
+    margin-top: 40px;
+    animation: fadeInUp 1s ease-out 1s both;
+}
+
+.message-box {
+    background: linear-gradient(135deg, #E0FFFF 0%, #98FFE0 100%);
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    border: 4px solid rgba(255, 255, 255, 0.5);
+}
+
+.message-box h3 {
+    color: #8B008B;
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-family: 'Brush Script MT', cursive;
+}
+
+.message-box p {
+    font-size: 1.3em;
+    color: #4B0082;
+    margin: 15px 0;
+    font-weight: 500;
+}
+
+.countdown-text {
+    margin-top: 25px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+}
+
+.countdown-text p {
+    font-size: 1.4em;
+    color: #6A0DAD;
+    font-weight: bold;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-header h1 {
+        font-size: 2em;
+    }
+    
+    .heart-icon {
+        font-size: 3em;
+    }
+    
+    .letter-paper {
+        padding: 30px 20px;
+    }
+    
+    .letter-content h2 {
+        font-size: 2em;
+    }
+    
+    .letter-content p {
+        font-size: 1em;
+    }
+    
+    .photo-frame {
+        max-width: 300px;
+    }
+}
